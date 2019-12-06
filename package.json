@@ -1,0 +1,39 @@
+{
+  "name": "typescript-style-hook-plugin",
+  "version": "0.1.0",
+  "description": "TypeScript language service plugin that adds IntelliSense for style-hook",
+  "keywords": [
+    "TypeScript",
+    "style",
+    "style-hook",
+    "style hook",
+    "css"
+  ],
+  "main": "lib/index.js",
+  "author": "Microsoft",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/style-hook/typescript-style-hook-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/style-hook/typescript-style-hook-plugin/issues"
+  },
+  "dependencies": {
+    "typescript-styled-plugin": "^0.15.0"
+  },
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "^7.0.22",
+    "jest": "^24.9.0",
+    "typescript": "^3.7.2"
+  },
+  "scripts": {
+    "compile": "./node_modules/.bin/tsc -p .",
+    "watch:compile": "./node_modules/.bin/tsc --watch -p .",
+    "prepublishOnly": "tsc -p ."
+  }
+}

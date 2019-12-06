@@ -1,0 +1,25 @@
+language: node_js
+
+node_js:
+  - '10'
+
+sudo: false
+
+cache:
+  yarn: true
+
+branches:
+  only:
+  - master
+
+install:
+  - yarn
+  - yarn link
+  - (cd e2e ; yarn link typescript-style-hook-plugin; yarn )
+
+script:
+  - yarn compile
+  - yarn jest
+
+after_failure:
+  - cat e2e/server-fixture/log.txt
