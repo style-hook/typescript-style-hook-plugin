@@ -2,7 +2,7 @@ const path = require('path')
 const createServer = require('../server-fixture')
 const { openMockFile, getFirstResponseOfType } = require('./helpers');
 
-const mockFileName = path.join(__dirname, '..', 'project-fixture', 'main.ts');
+const mockFileName = path.join(__dirname, '..', 'project-fixture', 'app.tsx');
 
 describe('ModuleStyle property go to Definition', () => {
   it('should go to the style code className', () => {

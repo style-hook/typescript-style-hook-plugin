@@ -3,7 +3,7 @@ const createServer = require('../server-fixture')
 const { openMockFile, getFirstResponseOfType } = require('./helpers');
 const typescript = require('typescript')
 
-const mockFileName = path.join(__dirname, '..', 'project-fixture', 'main.ts');
+const mockFileName = path.join(__dirname, '..', 'project-fixture', 'app.tsx');
 
 describe('ModuleStyle Property Completions', () => {
   it('should return details for classNames completion', () => {
