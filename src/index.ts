@@ -1,6 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-import * as ts from 'typescript/lib/tsserverlibrary';
+import * as ts from 'typescript/lib/tsserverlibrary'
 import { StyledPlugin } from 'typescript-styled-plugin/lib/_plugin'
 
 export = (mod: { typescript: typeof ts }) => {
@@ -41,7 +41,7 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
   function isStyleTemplate(fileName: string, position: number): boolean {
     const definition = getDefinitionAtPosition(fileName, position)?.[0]
     if (!definition) return false
-    const {ScriptElementKind} = typescript
+    const { ScriptElementKind } = typescript
     if (definition.kind === ScriptElementKind.functionElement && targetApiNames.includes(definition.name))
       return true
     return false
@@ -52,8 +52,8 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
     if (!definition) return
     const sourceCode = getSourceCode(definition.fileName)
     if (!sourceCode) return
-    const {ScriptElementKind} = typescript
-    const {textSpan} = definition
+    const { ScriptElementKind } = typescript
+    const { textSpan } = definition
     if (!textSpan) return
     if ([ScriptElementKind.constElement, ScriptElementKind.variableElement, ScriptElementKind.letElement].includes(definition.kind)) {
       let position = sourceCode.indexOf('=', textSpan.start + textSpan.length)
@@ -76,7 +76,7 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
   }
 
   function getModuleStyleSpan(definition: ts.DefinitionInfo): ts.TextSpan | undefined {
-    const {contextSpan} = definition
+    const { contextSpan } = definition
     if (!contextSpan) return
     const sourceCode = getSourceCode(definition.fileName)
     if (!sourceCode) return
@@ -162,21 +162,21 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
     if (!selection.parent) return definitionInfoAndBoundSpan
     const hostPosition = selection.parent.textSpan.start
     const moduleStyleDefinition = getModuleStyleDefinition(fileName, hostPosition)
-      if (!moduleStyleDefinition) return definitionInfoAndBoundSpan
+    if (!moduleStyleDefinition) return definitionInfoAndBoundSpan
     getModuleStyleClassNames
     const word = sourceCode.slice(selection.textSpan.start, selection.textSpan.start + selection.textSpan.length)
     const classNamePosition = findModuleStyleClassNames(moduleStyleDefinition, word)
     if (classNamePosition === -1) return definitionInfoAndBoundSpan
     if (definitionInfoAndBoundSpan) definitionInfoAndBoundSpan.definitions = [{
-        fileName: moduleStyleDefinition.fileName,
-        name: word,
-        textSpan: {
-          start: classNamePosition,
-          length: word.length,
-        },
-        kind: typescript.ScriptElementKind.string,
-        containerKind: typescript.ScriptElementKind.string,
-        containerName: TARGET_INTERFACE,
+      fileName: moduleStyleDefinition.fileName,
+      name: word,
+      textSpan: {
+        start: classNamePosition,
+        length: word.length,
+      },
+      kind: typescript.ScriptElementKind.string,
+      containerKind: typescript.ScriptElementKind.string,
+      containerName: TARGET_INTERFACE,
     }]
     return definitionInfoAndBoundSpan
   }
