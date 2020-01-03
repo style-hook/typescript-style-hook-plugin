@@ -131,7 +131,8 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
     const completions = getCompletionsAtPosition(fileName, position, options)
     if (!completions?.isMemberCompletion) return completions
     const { ScriptElementKind } = typescript
-    if (completions.entries[0]?.kind === ScriptElementKind.jsxAttribute) return completions
+    if ([ScriptElementKind.jsxAttribute, ScriptElementKind.memberVariableElement].includes(completions.entries[0]?.kind))
+      return completions
     const hostPosition = getHosterPosition(fileName, position)
     if (hostPosition === -1) return completions
     const hostTypeDefinition = languageService.getTypeDefinitionAtPosition(fileName, hostPosition)?.[0]
