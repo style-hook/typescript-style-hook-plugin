@@ -129,6 +129,8 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
   languageService.getCompletionsAtPosition = function (fileName, position, options) {
     const completions = getCompletionsAtPosition(fileName, position, options)
     if (!completions?.isMemberCompletion) return completions
+    const { ScriptElementKind } = typescript
+    if (completions.entries[0]?.kind === ScriptElementKind.jsxAttribute) return completions
     const hostPosition = getHosterPosition(fileName, position)
     if (hostPosition === -1) return completions
     const hostTypeDefinition = languageService.getTypeDefinitionAtPosition(fileName, hostPosition)?.[0]
@@ -139,7 +141,6 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
     if (!moduleStyleDefinition) return completions
     const classNames = getModuleStyleClassNames(moduleStyleDefinition)
     if (!classNames?.length) return completions
-    const {ScriptElementKind} = typescript
     completions.entries = classNames.map((className, i) => <ts.CompletionEntry>({
       kind: ScriptElementKind.memberVariableElement,
       name: className,
