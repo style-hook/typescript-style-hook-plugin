@@ -58,8 +58,9 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
     if ([ScriptElementKind.constElement, ScriptElementKind.variableElement, ScriptElementKind.letElement].includes(definition.kind)) {
       let position = sourceCode.indexOf('=', textSpan.start + textSpan.length)
       if (position === -1) return
-      position ++
-      position += sourceCode.slice(position).length - sourceCode.slice(position).trimEnd().length
+      position = sourceCode.indexOf(
+        sourceCode.slice(position + 1).trim()
+      )
       if (isStyleTemplate(definition.fileName, position))
         return definition
       return getModuleStyleDefinition(definition.fileName, position)
@@ -68,7 +69,7 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
     //   let position = sourceCode.indexOf(':', textSpan.start + textSpan.length)
     //   if (position === -1) return
     //   position ++
-    //   position += sourceCode.slice(position).length - sourceCode.slice(position).trimEnd().length
+    //   position += sourceCode.slice(position).length - sourceCode.slice(position).trim().length
     //   if (isStyleTemplate(definition.fileName, position))
     //     return definition
     //   return getStyleTagDefinition(definition.fileName, position)
