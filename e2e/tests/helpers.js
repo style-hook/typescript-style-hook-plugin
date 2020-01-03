@@ -5,7 +5,7 @@ exports.openMockFile = (server, mockFileName, fileContent) => {
         arguments: {
             file: mockFileName,
             fileContent,
-            scriptKindName: 'TS'
+            scriptKindName: 'TSX'
         }
     });
     return server;

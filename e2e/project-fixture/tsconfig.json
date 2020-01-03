@@ -2,8 +2,10 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "commonjs",
+    "jsx": "react",
+    "esModuleInterop": true,
     "plugins": [
-      { "name": "typescript-style-hook-plugin", "tags": ["css"] }
+      { "name": "typescript-style-hook-plugin" }
     ]
   }
 }

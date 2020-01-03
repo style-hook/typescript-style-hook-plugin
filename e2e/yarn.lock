@@ -7,15 +7,33 @@
   resolved "https://registry.npm.taobao.org/@emmetio/extract-abbreviation/download/@emmetio/extract-abbreviation-0.1.6.tgz#e4a9856c1057f0aff7d443b8536477c243abe28c"
   integrity sha1-5KmFbBBX8K/31EO4U2R3wkOr4ow=
 
+"@types/prop-types@*":
+  version "15.7.3"
+  resolved "https://registry.npm.taobao.org/@types/prop-types/download/@types/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
+  integrity sha1-KrDV2i5YFflLC51LldHl8kOrLKc=
+
+"@types/react@^16.9.17":
+  version "16.9.17"
+  resolved "https://registry.npm.taobao.org/@types/react/download/@types/react-16.9.17.tgz#58f0cc0e9ec2425d1441dd7b623421a867aa253e"
+  integrity sha1-WPDMDp7CQl0UQd17YjQhqGeqJT4=
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
+csstype@^2.2.0:
+  version "2.6.8"
+  resolved "https://registry.npm.taobao.org/csstype/download/csstype-2.6.8.tgz#0fb6fc2417ffd2816a418c9336da74d7f07db431"
+  integrity sha1-D7b8JBf/0oFqQYyTNtp01/B9tDE=
+
 jsonc-parser@^1.0.0:
   version "1.0.3"
   resolved "https://registry.npm.taobao.org/jsonc-parser/download/jsonc-parser-1.0.3.tgz#1d53d7160e401a783dbceabaad82473f80e6ad7e"
   integrity sha1-HVPXFg5AGng9vOq6rYJHP4DmrX4=
 
-style-hook@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npm.taobao.org/style-hook/download/style-hook-1.1.1.tgz?cache=0&sync_timestamp=1575595990239&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstyle-hook%2Fdownload%2Fstyle-hook-1.1.1.tgz#30f4d4988ff962ad15d7577eaff5a643fb01d820"
-  integrity sha1-MPTUmI/5Yq0V11d+r/WmQ/sB2CA=
+style-hook@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.npm.taobao.org/style-hook/download/style-hook-1.1.3.tgz?cache=0&sync_timestamp=1578014823047&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstyle-hook%2Fdownload%2Fstyle-hook-1.1.3.tgz#f410ed8b887a329cb3d9247668351d66ebba7d36"
+  integrity sha1-9BDti4h6Mpyz2SR2aDUdZuu6fTY=
   dependencies:
     stylis "^3.5.4"
 
@@ -25,10 +43,17 @@ stylis@^3.5.4:
   integrity sha1-9mXyX14pnPPWRlSrlJpXx2i3P74=
 
 "typescript-style-hook-plugin@file:./..":
-  version "0.0.3"
+  version "0.1.1"
+  dependencies:
+    typescript-styled-plugin "^0.15.0"
+
+typescript-styled-plugin@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.npm.taobao.org/typescript-styled-plugin/download/typescript-styled-plugin-0.15.0.tgz#9e307f04f7cfab8c6319787bf854330326c9ba92"
+  integrity sha1-njB/BPfPq4xjGXh7+FQzAybJupI=
   dependencies:
     typescript-template-language-service-decorator "^2.2.0"
-    vscode-css-languageservice "^3.0.13"
+    vscode-css-languageservice "^4.0.2"
     vscode-emmet-helper "1.2.11"
     vscode-languageserver-types "^3.13.0"
 
@@ -42,13 +67,13 @@ typescript@^3.3.3333:
   resolved "https://registry.npm.taobao.org/typescript/download/typescript-3.7.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-3.7.3.tgz#b36840668a16458a7025b9eabfad11b66ab85c69"
   integrity sha1-s2hAZooWRYpwJbnqv60Rtmq4XGk=
 
-vscode-css-languageservice@^3.0.13:
-  version "3.0.13"
-  resolved "https://registry.npm.taobao.org/vscode-css-languageservice/download/vscode-css-languageservice-3.0.13.tgz#1788735b65fde54181ea458e6a52cc2bd6dd9126"
-  integrity sha1-F4hzW2X95UGB6kWOalLMK9bdkSY=
+vscode-css-languageservice@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.npm.taobao.org/vscode-css-languageservice/download/vscode-css-languageservice-4.0.2.tgz#7496e538b0c151feac16d5888cc0b1b104f4c736"
+  integrity sha1-dJblOLDBUf6sFtWIjMCxsQT0xzY=
   dependencies:
-    vscode-languageserver-types "^3.13.0"
-    vscode-nls "^4.0.0"
+    vscode-languageserver-types "^3.15.0-next.2"
+    vscode-nls "^4.1.1"
 
 vscode-emmet-helper@1.2.11:
   version "1.2.11"
@@ -64,7 +89,12 @@ vscode-languageserver-types@^3.13.0, vscode-languageserver-types@^3.6.0-next.1:
   resolved "https://registry.npm.taobao.org/vscode-languageserver-types/download/vscode-languageserver-types-3.14.0.tgz#d3b5952246d30e5241592b6dde8280e03942e743"
   integrity sha1-07WVIkbTDlJBWStt3oKA4DlC50M=
 
-vscode-nls@^4.0.0:
+vscode-languageserver-types@^3.15.0-next.2:
+  version "3.15.0-next.9"
+  resolved "https://registry.npm.taobao.org/vscode-languageserver-types/download/vscode-languageserver-types-3.15.0-next.9.tgz#957a9d1d5998a02edf62298fb7e37d9efcc6c157"
+  integrity sha1-lXqdHVmYoC7fYimPt+N9nvzGwVc=
+
+vscode-nls@^4.1.1:
   version "4.1.1"
   resolved "https://registry.npm.taobao.org/vscode-nls/download/vscode-nls-4.1.1.tgz#f9916b64e4947b20322defb1e676a495861f133c"
   integrity sha1-+ZFrZOSUeyAyLe+x5naklYYfEzw=
