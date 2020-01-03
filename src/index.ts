@@ -21,7 +21,7 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
   const { languageService, languageServiceHost } = info
 
   function getSourceCode(fileName: string) {
-    return languageService.getProgram()?.getSourceFile(fileName)?.getText()
+    return languageService.getProgram()?.getSourceFile(fileName)?.getFullText()
   }
 
   const targetApiNames = ['createModuleStyle', 'useModuleStyle']
@@ -115,6 +115,7 @@ function inject(typescript: typeof ts, info: ts.server.PluginCreateInfo): void {
   function getHosterPosition(fileName: string, position: number) {
     const sourceCode = getSourceCode(fileName)
     if (!sourceCode) return -1
+    log(sourceCode)
     const visitorPosition = Math.max(
       sourceCode.lastIndexOf('.', position),
       sourceCode.lastIndexOf('[', position),
