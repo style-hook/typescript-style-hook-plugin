@@ -1,6 +1,6 @@
 {
   "name": "typescript-style-hook-plugin",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "TypeScript language service plugin that adds IntelliSense for style-hook",
   "keywords": [
     "TypeScript",
